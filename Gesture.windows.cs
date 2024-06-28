@@ -62,7 +62,7 @@ partial class GestureBehavior
 		platformView.PointerCanceled -= OnPointerCanceled;
 		platformView.DoubleTapped -= OnDoubleTapped;
 
-		gestureRecognizer = default!;
+		//gestureRecognizer = default!;
 		view = default!;
 	}
 
