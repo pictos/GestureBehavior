@@ -92,7 +92,7 @@ partial class GestureBehavior
 		}, CancellationToken.None, TaskContinuationOptions.None, TaskScheduler.FromCurrentSynchronizationContext());
 	}
 
-	void PanGestureHandler(UIPanGestureRecognizer gesture)
+	public void PanGestureHandler(UIPanGestureRecognizer gesture)
 	{
 		var status = gesture.State.ToMauiStatus();
 		var view = gesture.View;
