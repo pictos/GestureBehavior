@@ -59,6 +59,9 @@ partial class GestureBehavior
 
 	void LongPressHandler(UILongPressGestureRecognizer gesture)
 	{
+		if (gesture.State != UIGestureRecognizerState.Began)
+			return;
+		
 		var view = gesture.View;
 		var rect = CalculateViewPosition(view);
 		var touch = CalculateTouch(gesture, view);
