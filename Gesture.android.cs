@@ -194,7 +194,7 @@ sealed class SimpleGestureListener : GestureDetector.SimpleOnGestureListener, ID
 
 		Previous = e2;
 		Logger();
-		System.Diagnostics.Debug.WriteLine($"Action: {e2.Action}");
+		//System.Diagnostics.Debug.WriteLine($"Action: {e2.Action}");
 		return base.OnScroll(e1, e2, distanceX, distanceY);
 	}
 
@@ -275,12 +275,6 @@ sealed class SimpleGestureListener : GestureDetector.SimpleOnGestureListener, ID
 
 	public override bool OnFling(MotionEvent? e1, MotionEvent e2, float velocityX, float velocityY)
 	{
-		if (e1 is null)
-			goto RET;
-
-		if (!isScrolling)
-			goto RET;
-
 		var relativeVx = velocityX / scaledMaximumFlingVelocity;
 		var relativeVy = velocityY / scaledMaximumFlingVelocity;
 
@@ -303,7 +297,6 @@ sealed class SimpleGestureListener : GestureDetector.SimpleOnGestureListener, ID
 			behavior.SwipeFire(args);
 		}
 
-		RET:
 		isScrolling = false;
 		Previous = null;
 		return false;
