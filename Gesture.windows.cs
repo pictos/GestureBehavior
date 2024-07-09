@@ -140,10 +140,17 @@ partial class GestureBehavior
 		if (uiElement is null)
 			return;
 
-		uiElement.CapturePointer(e.Pointer);
-		isGestureSucceed = false;
-		var point = e.GetCurrentPoint(uiElement);
-		gestureRecognizer.ProcessDownEvent(point);
+		try
+		{
+			uiElement.CapturePointer(e.Pointer);
+			isGestureSucceed = false;
+			var point = e.GetCurrentPoint(uiElement);
+			gestureRecognizer.ProcessDownEvent(point);
+		}
+		catch (ArgumentException ex)
+		{
+			Trace.WriteLine($"Error: {ex} : {ex.Message}");
+		}
 		e.Handled = true;
 
 		FlowGestureToInnerView(e, EventType.PointerPressed);
