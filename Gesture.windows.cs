@@ -68,6 +68,8 @@ partial class GestureBehavior
 
 	internal void OnPointerCanceled(object? sender, Microsoft.UI.Xaml.Input.PointerRoutedEventArgs e)
 	{
+		if (!e.Pointer.IsInRange)
+			return;
 		var uiElement = (FrameworkElement?)sender ?? touchableView;
 
 		if (uiElement is null)
@@ -96,6 +98,8 @@ partial class GestureBehavior
 
 	internal void OnPointerReleased(object? sender, Microsoft.UI.Xaml.Input.PointerRoutedEventArgs e)
 	{
+		if (!e.Pointer.IsInRange)
+			return;
 		var uiElement = (FrameworkElement?)sender ?? touchableView;
 
 		if (uiElement is null)
@@ -109,6 +113,8 @@ partial class GestureBehavior
 
 	internal void OnPointerMoved(object? sender, Microsoft.UI.Xaml.Input.PointerRoutedEventArgs e)
 	{
+		if (!e.Pointer.IsInRange)
+			return;
 		var uiElement = (FrameworkElement?)sender ?? touchableView;
 
 		if (uiElement is null)
@@ -127,6 +133,8 @@ partial class GestureBehavior
 
 	internal void OnPointerPressed(object? sender, Microsoft.UI.Xaml.Input.PointerRoutedEventArgs e)
 	{
+		if (!e.Pointer.IsInRange)
+			return;
 		var uiElement = (FrameworkElement?)sender ?? touchableView;
 
 		if (uiElement is null)
