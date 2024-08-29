@@ -73,6 +73,9 @@ partial class GestureBehavior
 	// Handle over gesture on this later
 	void SingleTapHandler(UITapGestureRecognizer gesture)
 	{
+		if (gesture.State == UIGestureRecognizerState.Ended)
+			return;
+
 		cts.Dispose();
 		cts = RegisterNewCts();
 
