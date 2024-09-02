@@ -37,7 +37,7 @@ partial class GestureBehavior
 	{
 		if (FlowGesture)
 		{
-			tapGestureRecognizer.Delegate = multipleTouchesDelegate;
+			//tapGestureRecognizer.Delegate = multipleTouchesDelegate;
 			doubleTapGestureRecognizer.Delegate = multipleTouchesDelegate;
 			panGestureRecognizer.Delegate = multipleTouchesDelegate;
 			longPressGestureRecognizer.Delegate = multipleTouchesDelegate;
@@ -73,9 +73,6 @@ partial class GestureBehavior
 	// Handle over gesture on this later
 	void SingleTapHandler(UITapGestureRecognizer gesture)
 	{
-		if (gesture.State == UIGestureRecognizerState.Ended)
-			return;
-
 		cts.Dispose();
 		cts = RegisterNewCts();
 
